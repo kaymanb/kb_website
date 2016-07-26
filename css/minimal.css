@@ -1,0 +1,44 @@
+/*
+ * Name: minimal
+ * Description: Minimal CSS for the personal website of Kayman Brusse.
+ * Author: Kayman Brusse
+ */
+
+/*** General Styles ***/
+
+body {
+    margin: 40px auto;
+    max-width:650px;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #444444;
+    background-color: #EEEEEE;
+    padding: 0 10px
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+}
+
+h1 {
+    font-style: italic;
+}
+
+/* Link Style */
+a:link, a:visited {
+   color: #274159;
+   text-decoration: none;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+}
+
+a:active {
+    color: #1f3447;
+}
+
+/*** Class Styles ***/
+.light {
+    color: #555;
+}
