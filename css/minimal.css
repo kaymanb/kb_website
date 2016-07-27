@@ -12,7 +12,7 @@ body {
     line-height: 1.6;
     font-size: 18px;
     color: #444444;
-    background-color: #EEEEEE;
+    background-color: #F0F0F0;
     padding: 0 10px
 }
 
@@ -22,6 +22,16 @@ h1, h2, h3 {
 
 h1 {
     font-style: italic;
+}
+
+h2 {
+    font-size: 18px;
+    font-style: italic;
+}
+
+table {
+    border-collapse: seperate;
+    border-spacing: 20px;
 }
 
 /* Link Style */
@@ -38,7 +48,18 @@ a:active {
     color: #1f3447;
 }
 
+/* List Style */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 /*** Class Styles ***/
 .light {
     color: #555;
+}
+
+.horizontal li {
+    display: inline;
 }
