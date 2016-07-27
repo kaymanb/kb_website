@@ -38,6 +38,7 @@ table {
 a:link, a:visited {
    color: #274159;
    text-decoration: none;
+   font-style: bold;
 }
 
 a:hover, a:active {
