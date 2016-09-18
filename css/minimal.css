@@ -5,15 +5,11 @@
  */
 
 /*** General Styles ***/
-
 body {
-    margin: 40px auto;
-    max-width:650px;
+    margin: 0;
     line-height: 1.6;
     font-size: 18px;
     color: #444444;
-    background-color: #F0F0F0;
-    padding: 0 10px
 }
 
 h1, h2, h3 {
@@ -21,46 +17,30 @@ h1, h2, h3 {
 }
 
 h1 {
+    font-size: 50px;
     font-style: italic;
 }
 
-h2 {
-    font-size: 18px;
-    font-style: italic;
+/*** By Class ***/
+.footer {
+    position: absolute;
+    bottom: 0;
+    display: inline-block;
+    width: 650px;
+    margin-left: -325px;
 }
 
-table {
-    border-collapse: seperate;
-    border-spacing: 20px;
+/*** By ID ***/
+#header_color {
+    background-color: yellow;
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    text-align: center;
 }
 
-/* Link Style */
-a:link, a:visited {
-   color: #274159;
-   text-decoration: none;
-   font-style: bold;
+#under_header {
+    top: 50%;
 }
 
-a:hover, a:active {
-    text-decoration: underline;
-}
-
-a:active {
-    color: #1f3447;
-}
-
-/* List Style */
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-/*** Class Styles ***/
-.light {
-    color: #555;
-}
-
-.horizontal li {
-    display: inline;
-}
