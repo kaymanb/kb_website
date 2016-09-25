@@ -1,0 +1,92 @@
+/* Responsive CSS - SCSS
+ * Author: Kayman Brusse
+ */
+
+// -- Responsive Mixins --
+// Edit these to change when html is responsive.
+@mixin responsive($class) {
+    @if $class == xs {
+        @media (max-width: 400px) { @content;}
+    }
+    
+    @else if $class == sm {
+        @media (min-width: 768px) { @content; }
+    }
+ 
+    @else if $class == md {
+        @media (min-width: 960px) { @content; }
+    }
+ 
+    @else if $class == lg {
+        @media (min-width: 1200px) { @content; }
+    }
+ 
+    @else {
+        @warn "Breakpoint mixin supports: xs, sm, md, lg";
+    }
+}
+
+// Variables
+
+$fonts: Helvetica, sans-serif;
+
+// -- Responsive Classes --
+
+html, body {
+
+    padding: 0;
+    margin: 0;
+
+}
+
+// Navigation Bar
+$navbar-bg: #1a1a1a;
+$navbar-active: #0a0a0a;
+$navbar-txt-color: #fafafa;
+
+.navbar {
+    
+    height: 60px;
+    width: 100%;
+    background-color: $navbar-bg;
+    font-family: $fonts;
+
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        display: inline;
+        float: left;
+        padding: 20px 20px;
+
+        &:hover {
+            background-color: $navbar-active;
+        }
+
+        @include responsive(xs) {
+            width: 100%;
+            display: block;
+            background-color: $navbar-bg;
+        }
+    }
+
+    a {
+        display: block;
+        width: 100%;
+        text-align: left;
+        text-decoration: none;
+        color: $navbar-txt-color;
+    }
+
+}
+
+.responsive-container {
+
+    overflow: hidden;
+
+}
+
+
+
