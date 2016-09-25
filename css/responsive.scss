@@ -29,6 +29,22 @@
 // Variables
 
 $fonts: Helvetica, sans-serif;
+$txt-color: #212121;
+$txt-color-light: #fafafa;
+
+$bg-color: #fafafa;
+$bg-color-dark: #424242;
+
+$screen-height: 100vh;
+$lg-width: 960px;
+
+
+$navbar-active: #f5f5f5;
+$navbar-height: 60px;
+$navbar-txt-color: #0a0a0a;
+$navbar-txt-size: 14px;
+
+$section-height: calc(100vh);
 
 // -- Responsive Classes --
 
@@ -36,57 +52,108 @@ html, body {
 
     padding: 0;
     margin: 0;
-
+    font-family: $fonts;
+    background-color: $bg-color;
+    color: $txt-color;
 }
 
 // Navigation Bar
-$navbar-bg: #1a1a1a;
-$navbar-active: #0a0a0a;
-$navbar-txt-color: #fafafa;
-
 .navbar {
-    
-    height: 60px;
+
+    height: $navbar-height;
     width: 100%;
-    background-color: $navbar-bg;
-    font-family: $fonts;
+    font-size: $navbar-txt-size;
+    border-bottom-style: none;
+    background-color: $bg-color;
+    
+    @include responsive(lg) {
+        border-bottom: thin solid $navbar-active;
+        position: fixed;
+    }
+
+    nav {
+        @include responsive(lg) {
+            width: $lg-width;
+            margin: 0 auto;
+        }
+    }
 
     ul {
-        padding: 0;
         margin: 0;
+        padding: 0;
     }
 
     li {
         display: inline;
         float: left;
-        padding: 20px 20px;
 
+        width: 100%;
+        display: block;
+        border-bottom-style: solid;
+        border-bottom: thin solid $navbar-active;
+
+        // Hover Effects.
         &:hover {
             background-color: $navbar-active;
+            transition: background-color 0.5s ease;
         }
 
-        @include responsive(xs) {
-            width: 100%;
-            display: block;
-            background-color: $navbar-bg;
+        @include responsive(lg) {
+            border-bottom-style: none; // No border.
+            display: inline;
+            width: auto;
         }
     }
 
     a {
         display: block;
-        width: 100%;
         text-align: left;
         text-decoration: none;
-        color: $navbar-txt-color;
+        color: $txt-color;
+        padding: 20px;
     }
+}
+
+// Title Container
+
+.title-container {
+    
+    text-align: center;
+    vertical-align: middle;
+    padding: 40px;
+
+    @include responsive(lg) {
+        height: $section-height;
+        line-height: $section-height;
+        padding: 0;
+    }
+}
+
+.section-container {
 
 }
 
-.responsive-container {
+.section-container-dark {
+
+    background-color: $bg-color-dark;
+    color: $txt-color-light;
+}
+
+section {
+    
+    width: 100%;
+    padding: 20px;
+
+    @include responsive(lg) {
+        width: 960px;
+        margin: 0 auto;
+    }
+}
+// Main Responsive Container.
+.res-container {
 
     overflow: hidden;
-
+    margin: auto;
+    width: 100%;
 }
-
-
 

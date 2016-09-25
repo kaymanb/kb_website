@@ -7,44 +7,51 @@
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <!-- Kickstart CSS -->
-        <link rel="stylesheet" href="css/kickstart.min.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="css/responsive.css">
 
     </head>
 
     <body>
-
         <!-- Nav Bar. -->
-        <div class="navbar navbar-dark navbar-fluid_fixed">
+        <div class="navbar">
           <nav>
             <ul>
               <li>
                 <a href="index.html">Home</a>
               </li>
               <li>
-                <a href="pages/projects.html">Projects</a>
+                <a href="#about">About</a>
+              </li>
+              <li>
+                <a href="#projects">Projects</a>
               </li>
               <li>
                 <a href="#">Resume</a>
               </li>
-              <li>
-                <a href="pages/about.html">About</a>
-              </li>
             </ul>
-            <ul> 
-              <li>
-                <a href="#">Contact</a>
-              </li>
-            <ul>
           </nav>
         </div>
 
-    <!-- Wrapper for Fluid-Fixed Layout -->
-    <div class="wrapper">
-        <img src="resources/title_name_960.png" style="width:100%">
+    <div class="res-container">
+        <div class="title-container">
+            <h1>Kayman Brusse</h1>
+        </div>
+
+        <div class="section-container-dark">
+            <section id="about">
+                <h1>About</h1>
+                <p>This is the section of the website that is about me!</p>
+            </section>
+        </div>
+
+        <div class="section-container">
+            <section id="projects">
+                <h2>Projects</h2>
+                <p>This section is about all of my projects!</p>
+            </section>
+        </div>
     </div>
 
-    <!-- Kickstart JS Scripts -->
-    <script type="text/javascript" src="js/kickstart.min.js"></script>
     </body>
 </html>
