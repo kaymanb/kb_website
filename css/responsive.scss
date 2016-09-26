@@ -13,6 +13,7 @@ $bg-color-dark: #E0E0E0;
 
 $screen-height: 100vh;
 $lg-width: 960px;
+$md-width: 768px;
 
 
 $navbar-active: #f5f5f5;
@@ -61,6 +62,10 @@ p {
     padding-right: 30px;
 }
 
+img {
+    width: 100%;
+    padding-right: 30px;
+}
 // Links
 a {
     color: $txt-color-link;
@@ -94,13 +99,18 @@ a.styled {
     border-bottom-style: none;
     background-color: $bg-color;
     
-    @include responsive(lg) {
+    @include responsive(md) {
         border-bottom: thin solid $bg-color-dark;
         position: fixed;
     }
 
     nav {
-        
+       
+        @include responsive(md) {
+            width: $md-width;
+            margin: 0 auto;
+        }
+
         @include responsive(lg) {
             width: $lg-width;
             margin: 0 auto;
@@ -113,12 +123,10 @@ a.styled {
     }
 
     li {
-        display: inline;
         float: left;
         width: 100%;
         display: block;
-        border-bottom-style: solid;
-        border-bottom: thin solid $navbar-active;
+        border-bottom: thin solid $bg-color-dark;
 
         // Hover Effects.
         &:hover {
@@ -126,9 +134,8 @@ a.styled {
             transition: background-color 0.5s ease;
         }
 
-        @include responsive(lg) {
+        @include responsive(md) {
             border-bottom-style: none; // No border.
-            //padding-top: 5px;
             display: inline;
             width: auto;
         }
@@ -150,7 +157,7 @@ a.styled {
     vertical-align: middle;
     padding: 40px;
 
-    @include responsive(lg) {
+    @include responsive(md) {
         height: $section-height;
         line-height: $section-height;
         padding: 0;
@@ -172,10 +179,22 @@ section {
     padding: 20px;
     padding-right: 20px;
 
+    @include responsive(md) {
+        width: $md-width;
+        margin: 0 auto;
+    }
     @include responsive(lg) {
         width: $lg-width;
         margin: 0 auto;
     }
+}
+
+// Fix for scrolling to a section w/ fixed nav bar.
+.anchor {
+    display:block;
+    position: relative;
+    top: -55px;
+    visibility: hidden;
 }
 
 // Main Responsive Container.

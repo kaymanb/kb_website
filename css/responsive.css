@@ -11,6 +11,10 @@ html, body {
 p {
   padding-right: 30px; }
 
+img {
+  width: 100%;
+  padding-right: 30px; }
+
 a {
   color: #0277bd;
   text-decoration: none;
@@ -33,10 +37,14 @@ a.styled:hover:after {
   font-size: 14px;
   border-bottom-style: none;
   background-color: #fafafa; }
-  @media (min-width: 1200px) {
+  @media (min-width: 960px) {
     .navbar {
       border-bottom: thin solid #E0E0E0;
       position: fixed; } }
+  @media (min-width: 960px) {
+    .navbar nav {
+      width: 768px;
+      margin: 0 auto; } }
   @media (min-width: 1200px) {
     .navbar nav {
       width: 960px;
@@ -45,16 +53,14 @@ a.styled:hover:after {
     margin: 0;
     padding: 0; }
   .navbar li {
-    display: inline;
     float: left;
     width: 100%;
     display: block;
-    border-bottom-style: solid;
-    border-bottom: thin solid #f5f5f5; }
+    border-bottom: thin solid #E0E0E0; }
     .navbar li:hover {
       background-color: #f5f5f5;
       transition: background-color 0.5s ease; }
-    @media (min-width: 1200px) {
+    @media (min-width: 960px) {
       .navbar li {
         border-bottom-style: none;
         display: inline;
@@ -70,7 +76,7 @@ a.styled:hover:after {
   text-align: center;
   vertical-align: middle;
   padding: 40px; }
-  @media (min-width: 1200px) {
+  @media (min-width: 960px) {
     .title-container {
       height: calc(100vh - 20px);
       line-height: calc(100vh - 20px);
@@ -84,10 +90,20 @@ section {
   width: 100%;
   padding: 20px;
   padding-right: 20px; }
+  @media (min-width: 960px) {
+    section {
+      width: 768px;
+      margin: 0 auto; } }
   @media (min-width: 1200px) {
     section {
       width: 960px;
       margin: 0 auto; } }
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -55px;
+  visibility: hidden; }
 
 .res-container {
   overflow: hidden;
