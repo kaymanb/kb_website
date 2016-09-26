@@ -16,14 +16,13 @@ $lg-width: 960px;
 
 
 $navbar-active: #f5f5f5;
-$navbar-height: 60px;
+$navbar-height: 55px;
 $navbar-txt-color: #0a0a0a;
 $navbar-txt-size: 14px;
 
-$section-height: 100vh;
+$section-height: calc(100vh - 20px); // Hack for fixing 20px padding somewhere.
 
 // -- Responsive Mixins --
-// Edit these to change when html is responsive.
 @mixin responsive($class) {
     @if $class == xs {
         @media (max-width: 400px) { @content;}
@@ -88,7 +87,7 @@ a.styled {
 
 // Navigation Bar
 .navbar {
-
+    
     height: $navbar-height;
     width: 100%;
     font-size: $navbar-txt-size;
@@ -101,6 +100,7 @@ a.styled {
     }
 
     nav {
+        
         @include responsive(lg) {
             width: $lg-width;
             margin: 0 auto;
@@ -115,7 +115,6 @@ a.styled {
     li {
         display: inline;
         float: left;
-
         width: 100%;
         display: block;
         border-bottom-style: solid;
@@ -129,6 +128,7 @@ a.styled {
 
         @include responsive(lg) {
             border-bottom-style: none; // No border.
+            //padding-top: 5px;
             display: inline;
             width: auto;
         }
@@ -144,7 +144,6 @@ a.styled {
 }
 
 // Title Container
-
 .title-container {
     
     text-align: center;
@@ -155,6 +154,7 @@ a.styled {
         height: $section-height;
         line-height: $section-height;
         padding: 0;
+        margin: 0;
     }
 }
 
@@ -182,7 +182,7 @@ section {
 .res-container {
 
     overflow: hidden;
-    margin: auto;
+    margin: 0 auto;
     width: 100%;
 }
 

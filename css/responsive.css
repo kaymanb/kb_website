@@ -28,7 +28,7 @@ a.styled:hover:after {
   width: 100%; }
 
 .navbar {
-  height: 60px;
+  height: 55px;
   width: 100%;
   font-size: 14px;
   border-bottom-style: none;
@@ -72,9 +72,10 @@ a.styled:hover:after {
   padding: 40px; }
   @media (min-width: 1200px) {
     .title-container {
-      height: 100vh;
-      line-height: 100vh;
-      padding: 0; } }
+      height: calc(100vh - 20px);
+      line-height: calc(100vh - 20px);
+      padding: 0;
+      margin: 0; } }
 
 .section-container-dark {
   background-color: #E0E0E0; }
@@ -90,7 +91,7 @@ section {
 
 .res-container {
   overflow: hidden;
-  margin: auto;
+  margin: 0 auto;
   width: 100%; }
 
 /*# sourceMappingURL=responsive.css.map */
