@@ -1,19 +1,18 @@
 /* Responsive CSS - SCSS
  * Author: Kayman Brusse
  */
-html, body {
+/* -- Responsive Mixins -- */
+/* -- Responsive Classes -- */
+body {
   padding: 0;
   margin: 0;
   font-family: Helvetica, sans-serif;
   background-color: #fafafa;
   color: #212121; }
 
-p {
-  padding-right: 30px; }
-
 img {
   width: 100%;
-  padding-right: 30px; }
+  border-radius: 5px; }
 
 a {
   color: #0277bd;
@@ -57,14 +56,14 @@ a.styled:hover:after {
     width: 100%;
     display: block;
     border-bottom: thin solid #E0E0E0; }
-    .navbar li:hover {
-      background-color: #f5f5f5;
-      transition: background-color 0.5s ease; }
     @media (min-width: 960px) {
       .navbar li {
         border-bottom-style: none;
         display: inline;
         width: auto; } }
+    .navbar li:hover {
+      background-color: #f5f5f5;
+      transition: background-color 0.5s ease; }
   .navbar a {
     display: block;
     text-align: left;
@@ -72,6 +71,10 @@ a.styled:hover:after {
     color: #212121;
     padding: 20px; }
 
+/* -- Title Container -- 
+ * 
+ * Container for a centered title page.
+ */
 .title-container {
   text-align: center;
   vertical-align: middle;
@@ -83,13 +86,15 @@ a.styled:hover:after {
       padding: 0;
       margin: 0; } }
 
+.section-container {
+  width: 100%; }
+
 .section-container-dark {
+  width: 100%;
   background-color: #E0E0E0; }
 
 section {
-  width: 100%;
-  padding: 20px;
-  padding-right: 20px; }
+  padding: 20px; }
   @media (min-width: 960px) {
     section {
       width: 768px;

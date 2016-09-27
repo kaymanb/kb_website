@@ -2,54 +2,55 @@
  * Author: Kayman Brusse
  */
 
-// Variables
 
+// -- Variable Declarations -- //
+
+// Fonts
 $fonts: Helvetica, sans-serif;
 $txt-color: #212121;
 $txt-color-light: #616161;
 $txt-color-link: #0277bd;
+
+// Background
 $bg-color: #fafafa;
 $bg-color-dark: #E0E0E0;
+$section-height: calc(100vh - 20px); // Hack for fixing 20px padding somewhere.
 
+// Screen Sizes
 $screen-height: 100vh;
 $lg-width: 960px;
 $md-width: 768px;
 
-
+// Navbar
 $navbar-active: #f5f5f5;
 $navbar-height: 55px;
 $navbar-txt-color: #0a0a0a;
 $navbar-txt-size: 14px;
 
-$section-height: calc(100vh - 20px); // Hack for fixing 20px padding somewhere.
 
-// -- Responsive Mixins --
+/* -- Responsive Mixins -- */
 @mixin responsive($class) {
     @if $class == xs {
         @media (max-width: 400px) { @content;}
     }
-    
     @else if $class == sm {
         @media (min-width: 768px) { @content; }
     }
- 
     @else if $class == md {
         @media (min-width: 960px) { @content; }
     }
- 
     @else if $class == lg {
         @media (min-width: 1200px) { @content; }
     }
- 
     @else {
-        @warn "Breakpoint mixin supports: xs, sm, md, lg";
+        @warn "Mixin supports: xs, sm, md, lg";
     }
 }
 
-// -- Responsive Classes --
+/* -- Responsive Classes -- */
 
-html, body {
-
+// General Style Declarations
+body {
     padding: 0;
     margin: 0;
     font-family: $fonts;
@@ -57,15 +58,14 @@ html, body {
     color: $txt-color;
 }
 
-// Paragraphs
 p {
-    padding-right: 30px;
 }
 
 img {
     width: 100%;
-    padding-right: 30px;
+    border-radius: 5px;
 }
+
 // Links
 a {
     color: $txt-color-link;
@@ -75,6 +75,7 @@ a {
 
 // Links w/ left-to-right underline animation.
 a.styled {
+
     &:after {
         content: '';
         position: absolute;
@@ -93,19 +94,21 @@ a.styled {
 // Navigation Bar
 .navbar {
     
-    height: $navbar-height;
-    width: 100%;
-    font-size: $navbar-txt-size;
-    border-bottom-style: none;
-    background-color: $bg-color;
-    
+    // For > md screen sizes, place bar fixed at the top.
     @include responsive(md) {
         border-bottom: thin solid $bg-color-dark;
         position: fixed;
     }
 
+    height: $navbar-height;
+    width: 100%;
+    font-size: $navbar-txt-size;
+    border-bottom-style: none;
+    background-color: $bg-color;
+
     nav {
-       
+         
+        // Align navbar with other content on larger screens.
         @include responsive(md) {
             width: $md-width;
             margin: 0 auto;
@@ -123,6 +126,14 @@ a.styled {
     }
 
     li {
+        
+        // Adjust links for fixed navbar.
+        @include responsive(md) {
+            border-bottom-style: none; // No border.
+            display: inline;
+            width: auto;
+        }
+
         float: left;
         width: 100%;
         display: block;
@@ -132,12 +143,6 @@ a.styled {
         &:hover {
             background-color: $navbar-active;
             transition: background-color 0.5s ease;
-        }
-
-        @include responsive(md) {
-            border-bottom-style: none; // No border.
-            display: inline;
-            width: auto;
         }
     }
 
@@ -150,35 +155,40 @@ a.styled {
     }
 }
 
-// Title Container
+/* -- Title Container -- 
+ * 
+ * Container for a centered title page.
+ */
 .title-container {
-    
-    text-align: center;
-    vertical-align: middle;
-    padding: 40px;
 
+    // On larger devices, title occupies the entire screen.
     @include responsive(md) {
         height: $section-height;
         line-height: $section-height;
         padding: 0;
         margin: 0;
     }
+
+    text-align: center;
+    vertical-align: middle;
+    padding: 40px;
 }
 
+// General Section Container
 .section-container {
-
+    width: 100%;
 }
 
+// Section container w/ dark background
 .section-container-dark {
+    width: 100%;
     background-color: $bg-color-dark;
 }
 
+// Section Styles.
 section {
-    
-    width: 100%;
-    padding: 20px;
-    padding-right: 20px;
-
+   
+    // Adjust content width with device size. 
     @include responsive(md) {
         width: $md-width;
         margin: 0 auto;
@@ -187,6 +197,8 @@ section {
         width: $lg-width;
         margin: 0 auto;
     }
+
+    padding: 20px;
 }
 
 // Fix for scrolling to a section w/ fixed nav bar.
@@ -199,9 +211,7 @@ section {
 
 // Main Responsive Container.
 .res-container {
-
     overflow: hidden;
     margin: 0 auto;
     width: 100%;
 }
-

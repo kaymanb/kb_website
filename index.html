@@ -5,6 +5,8 @@
         <meta charset="UTF-8">
         <title>KB</title>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+        <!-- Responsive Meta Tag -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <!-- Responsive CSS -->
@@ -12,6 +14,7 @@
     </head>
 
     <body>
+
         <!-- Nav Bar. -->
         <div class="navbar">
             <nav>
@@ -33,52 +36,63 @@
         </div>
 
     <div class="res-container">
+        
+        <!-- Title Page -->
         <div class="title-container">
             <h1>Kayman Brusse</h1>
         </div>
 
+        <!-- About Section -->
         <div class="section-container-dark">
-            <span class="anchor" id="about"></span>
+            <span class="anchor" id="about"></span> <!-- Linked from navbar. -->
+
             <section>
                 <h2>About</h2>
+                
+                <img sizes="75vw"
+                srcset="resources/about_title_960.png 960w,
+                resources/about_title_massive.png 2448ww"
+                src="resources/about_title_768.png"
+                alt="Me at The Crack in Killarney">
+
+
                 <p>I am a third year student studying mathematics and computer
-                science at the <a class="styled" href="https://www.utoronto.ca/">University of
-                Toronto</a>. </p>
+                science at the <a class="styled" href="https://www.utoronto.ca/">
+                University of Toronto</a>.</p>
             </section>
         </div>
-
+        
+        <!-- Projects Section -->
         <div class="section-container">
             <span class="anchor" id="projects"></span>
+
             <section>
                 <h2>Projects</h2>
-                <p>
-                <a class="styled" href="https://bitbucket.org/kmanbrusse/">
-                https://bitbucket.org/kmanbrusse/</a>
-                </p>
+                <p><a class="styled" href="https://bitbucket.org/kmanbrusse/">
+                    https://bitbucket.org/kmanbrusse/</a></p>
+                
                 <h3>Evolution of Light</h3>
                 <p> A Roguelike video-game written in Python using the <a
                 class="styled"
                 href="https://docs.python.org/2/howto/curses.html">curses</a>
                 library. The player must navigate through narrow dungeons,
                 searching for more advanced technologies to use as a
-                light-source that will fend off monsters.
-                </p>
+                light-source that will fend off monsters.</p>
+
                 <p> The game is displayed onto a terminal in ASCII graphics.
                 Noteable features are randomly generated dungeons and a
                 field-of-vision algorithm. I am currently working on combat
-                including light-source mechanics. 
-                </p>
-                <h3>Personl Website</h3>
-                <p>
-                This website was created for the purpose of displaying my work
+                including light-source mechanics. </p>
+                
+                <h3>Personal Website</h3>
+                <p>This website was created for the purpose of displaying my work
                 as well as learning basic web development. I created my own 
                 responsive CSS using <a class="styled" 
                 href="http://sass-lang.com/">Sass</a>, although I was largely 
                 inspired by <a class="styled"
                 href="http://getskeleton.com/">Skeleton</a> and <a
                 class="styled" href="http://getbootstrap.com/">Boostrap</a>.
-                Try resizing this page or opening it on your phone!
-                </p>
+                Try resizing this page or opening it on your phone!</p>
             </section>
         </div>
     </div>
