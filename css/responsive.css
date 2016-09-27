@@ -1,7 +1,7 @@
-/* Responsive CSS - SCSS
+/* 
+ * Responsive CSS - SCSS
  * Author: Kayman Brusse
  */
-/* -- Responsive Mixins -- */
 /* -- Responsive Classes -- */
 body {
   padding: 0;
@@ -16,8 +16,7 @@ img {
 
 a {
   color: #0277bd;
-  text-decoration: none;
-  position: relative; }
+  text-decoration: none; }
 
 a.styled:after {
   content: '';
@@ -31,15 +30,16 @@ a.styled:hover:after {
   width: 100%; }
 
 .navbar {
+  border-bottom: thin solid #E0E0E0;
   height: 55px;
   width: 100%;
   font-size: 14px;
-  border-bottom-style: none;
-  background-color: #fafafa; }
-  @media (min-width: 960px) {
-    .navbar {
-      border-bottom: thin solid #E0E0E0;
-      position: fixed; } }
+  background-color: #fafafa;
+  position: fixed; }
+  .navbar.open li.menu_item {
+    display: block;
+    width: 100%;
+    border-bottom: thin solid #E0E0E0; }
   @media (min-width: 960px) {
     .navbar nav {
       width: 768px;
@@ -53,23 +53,32 @@ a.styled:hover:after {
     padding: 0; }
   .navbar li {
     float: left;
-    width: 100%;
-    display: block;
-    border-bottom: thin solid #E0E0E0; }
+    display: inline; }
     @media (min-width: 960px) {
       .navbar li {
-        border-bottom-style: none;
         display: inline;
         width: auto; } }
     .navbar li:hover {
       background-color: #f5f5f5;
       transition: background-color 0.5s ease; }
+    .navbar li.menu_item {
+      display: none;
+      background-color: #fafafa; }
+      @media (min-width: 960px) {
+        .navbar li.menu_item {
+          display: inline;
+          background-color: transparent; } }
+    .navbar li.dropdown {
+      float: right; }
+      @media (min-width: 960px) {
+        .navbar li.dropdown {
+          display: none; } }
   .navbar a {
     display: block;
-    text-align: left;
     text-decoration: none;
     color: #212121;
-    padding: 20px; }
+    padding: 20px;
+    position: relative; }
 
 /* -- Title Container -- 
  * 
@@ -78,13 +87,8 @@ a.styled:hover:after {
 .title-container {
   text-align: center;
   vertical-align: middle;
-  padding: 40px; }
-  @media (min-width: 960px) {
-    .title-container {
-      height: calc(100vh - 20px);
-      line-height: calc(100vh - 20px);
-      padding: 0;
-      margin: 0; } }
+  height: calc(100vh - 20px);
+  line-height: calc(100vh - 20px); }
 
 .section-container {
   width: 100%; }

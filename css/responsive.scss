@@ -1,4 +1,5 @@
-/* Responsive CSS - SCSS
+/* 
+ * Responsive CSS - SCSS
  * Author: Kayman Brusse
  */
 
@@ -28,7 +29,7 @@ $navbar-txt-color: #0a0a0a;
 $navbar-txt-size: 14px;
 
 
-/* -- Responsive Mixins -- */
+// -- Responsive Mixins -- //
 @mixin responsive($class) {
     @if $class == xs {
         @media (max-width: 400px) { @content;}
@@ -70,7 +71,6 @@ img {
 a {
     color: $txt-color-link;
     text-decoration: none;
-    position: relative;
 }
 
 // Links w/ left-to-right underline animation.
@@ -94,18 +94,25 @@ a.styled {
 // Navigation Bar
 .navbar {
     
-    // For > md screen sizes, place bar fixed at the top.
-    @include responsive(md) {
-        border-bottom: thin solid $bg-color-dark;
-        position: fixed;
-    }
-
+    border-bottom: thin solid $bg-color-dark;
     height: $navbar-height;
     width: 100%;
     font-size: $navbar-txt-size;
-    border-bottom-style: none;
     background-color: $bg-color;
-
+    position: fixed;
+    
+    &.open {
+        
+        li {
+            
+            &.menu_item {
+                display: block;
+                width: 100%;
+                border-bottom: thin solid $bg-color-dark;
+            }
+        }
+            
+    }
     nav {
          
         // Align navbar with other content on larger screens.
@@ -129,29 +136,46 @@ a.styled {
         
         // Adjust links for fixed navbar.
         @include responsive(md) {
-            border-bottom-style: none; // No border.
             display: inline;
             width: auto;
         }
 
         float: left;
-        width: 100%;
-        display: block;
-        border-bottom: thin solid $bg-color-dark;
+        display: inline;
 
         // Hover Effects.
         &:hover {
             background-color: $navbar-active;
             transition: background-color 0.5s ease;
         }
+
+        &.menu_item {
+
+            @include responsive(md) {
+                display: inline;
+                background-color: transparent;
+            }
+
+            display: none;
+            background-color: $bg-color;
+        }
+
+        &.dropdown {
+
+            @include responsive(md) {
+                display: none;
+            }
+
+            float: right;
+        }
     }
 
     a {
         display: block;
-        text-align: left;
         text-decoration: none;
         color: $txt-color;
         padding: 20px;
+        position: relative;
     }
 }
 
@@ -162,16 +186,20 @@ a.styled {
 .title-container {
 
     // On larger devices, title occupies the entire screen.
-    @include responsive(md) {
-        height: $section-height;
-        line-height: $section-height;
-        padding: 0;
-        margin: 0;
-    }
+    // @include responsive(md) {
+    //     height: $section-height;
+    //     line-height: $section-height;
+    //     padding: 0;
+    //     margin: 0;
+    // }
 
     text-align: center;
     vertical-align: middle;
-    padding: 40px;
+    //padding: 40px;
+   
+    // This makes the title the entire page on mobile as well. Keep?
+    height: $section-height;
+    line-height: $section-height;
 }
 
 // General Section Container
