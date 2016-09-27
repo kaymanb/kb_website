@@ -1,0 +1,217 @@
+/* Responsive CSS - SCSS
+ * Author: Kayman Brusse
+ */
+
+
+// -- Variable Declarations -- //
+
+// Fonts
+$fonts: Helvetica, sans-serif;
+$txt-color: #212121;
+$txt-color-light: #616161;
+$txt-color-link: #0277bd;
+
+// Background
+$bg-color: #fafafa;
+$bg-color-dark: #E0E0E0;
+$section-height: calc(100vh - 20px); // Hack for fixing 20px padding somewhere.
+
+// Screen Sizes
+$screen-height: 100vh;
+$lg-width: 960px;
+$md-width: 768px;
+
+// Navbar
+$navbar-active: #f5f5f5;
+$navbar-height: 55px;
+$navbar-txt-color: #0a0a0a;
+$navbar-txt-size: 14px;
+
+
+/* -- Responsive Mixins -- */
+@mixin responsive($class) {
+    @if $class == xs {
+        @media (max-width: 400px) { @content;}
+    }
+    @else if $class == sm {
+        @media (min-width: 768px) { @content; }
+    }
+    @else if $class == md {
+        @media (min-width: 960px) { @content; }
+    }
+    @else if $class == lg {
+        @media (min-width: 1200px) { @content; }
+    }
+    @else {
+        @warn "Mixin supports: xs, sm, md, lg";
+    }
+}
+
+/* -- Responsive Classes -- */
+
+// General Style Declarations
+body {
+    padding: 0;
+    margin: 0;
+    font-family: $fonts;
+    background-color: $bg-color;
+    color: $txt-color;
+}
+
+p {
+}
+
+img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+// Links
+a {
+    color: $txt-color-link;
+    text-decoration: none;
+    position: relative;
+}
+
+// Links w/ left-to-right underline animation.
+a.styled {
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        border-bottom: thin solid $txt-color-link;
+        transition: 0.3s;
+    }
+    
+    &:hover:after {
+        width: 100%;
+    }
+}
+
+// Navigation Bar
+.navbar {
+    
+    // For > md screen sizes, place bar fixed at the top.
+    @include responsive(md) {
+        border-bottom: thin solid $bg-color-dark;
+        position: fixed;
+    }
+
+    height: $navbar-height;
+    width: 100%;
+    font-size: $navbar-txt-size;
+    border-bottom-style: none;
+    background-color: $bg-color;
+
+    nav {
+         
+        // Align navbar with other content on larger screens.
+        @include responsive(md) {
+            width: $md-width;
+            margin: 0 auto;
+        }
+
+        @include responsive(lg) {
+            width: $lg-width;
+            margin: 0 auto;
+        }
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        
+        // Adjust links for fixed navbar.
+        @include responsive(md) {
+            border-bottom-style: none; // No border.
+            display: inline;
+            width: auto;
+        }
+
+        float: left;
+        width: 100%;
+        display: block;
+        border-bottom: thin solid $bg-color-dark;
+
+        // Hover Effects.
+        &:hover {
+            background-color: $navbar-active;
+            transition: background-color 0.5s ease;
+        }
+    }
+
+    a {
+        display: block;
+        text-align: left;
+        text-decoration: none;
+        color: $txt-color;
+        padding: 20px;
+    }
+}
+
+/* -- Title Container -- 
+ * 
+ * Container for a centered title page.
+ */
+.title-container {
+
+    // On larger devices, title occupies the entire screen.
+    @include responsive(md) {
+        height: $section-height;
+        line-height: $section-height;
+        padding: 0;
+        margin: 0;
+    }
+
+    text-align: center;
+    vertical-align: middle;
+    padding: 40px;
+}
+
+// General Section Container
+.section-container {
+    width: 100%;
+}
+
+// Section container w/ dark background
+.section-container-dark {
+    width: 100%;
+    background-color: $bg-color-dark;
+}
+
+// Section Styles.
+section {
+   
+    // Adjust content width with device size. 
+    @include responsive(md) {
+        width: $md-width;
+        margin: 0 auto;
+    }
+    @include responsive(lg) {
+        width: $lg-width;
+        margin: 0 auto;
+    }
+
+    padding: 20px;
+}
+
+// Fix for scrolling to a section w/ fixed nav bar.
+.anchor {
+    display:block;
+    position: relative;
+    top: -55px;
+    visibility: hidden;
+}
+
+// Main Responsive Container.
+.res-container {
+    overflow: hidden;
+    margin: 0 auto;
+    width: 100%;
+}
