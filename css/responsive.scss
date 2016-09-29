@@ -62,6 +62,7 @@ body {
 p {
 }
 
+//TODO: Maybe make images 100% w on mobile?
 img {
     width: 100%;
     border-radius: 5px;
@@ -101,18 +102,16 @@ a.styled {
     background-color: $bg-color;
     position: fixed;
     
-    &.open {
-        
-        li {
-            
-            &.menu_item {
-                display: block;
-                width: 100%;
-                border-bottom: thin solid $bg-color-dark;
-            }
-        }
-            
+
+
+    span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        margin-bottom: 4px;
+        background: $txt-color;
     }
+
     nav {
          
         // Align navbar with other content on larger screens.
@@ -143,12 +142,6 @@ a.styled {
         float: left;
         display: inline;
 
-        // Hover Effects.
-        &:hover {
-            background-color: $navbar-active;
-            transition: background-color 0.5s ease;
-        }
-
         &.menu_item {
 
             @include responsive(md) {
@@ -176,6 +169,73 @@ a.styled {
         color: $txt-color;
         padding: 20px;
         position: relative;
+    }
+    
+    &.open {
+        
+        li {
+            
+            &.menu_item {
+                display: block;
+                width: 100%;
+                border-bottom: thin solid $bg-color-dark;
+            }
+        }
+
+        span {
+
+            transform: translate(2px, 0px) rotate(45deg) scale(1.2, 1.0);
+    
+            &:nth-last-child(2) {
+                opacity: 0;
+                transform: rotate(0deg) scale(0.2, 0.2);
+            }
+    
+            &:nth-last-child(1) {
+                transform: rotate(-45deg) translate(0px, 0px) scale(1.2, 1.0);
+           }
+        }
+    }
+}
+
+span {
+
+    &.burger {
+        display: block;
+        width: 18px;
+        height: 2px;
+        margin-bottom: 4px;
+        background: $txt-color;
+        
+        transform-origin: 4px 0px;
+        
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                    background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                    opacity 0.55s ease;
+
+        &:first-child {
+            transform-origin: 0% 0%;
+        }
+
+        &:nth-last-child(2) {
+            transform-origin: 0% 100%;
+        }
+        
+        &.animate {
+            opacity: 1;
+            transform: rotate(45deg) translate(-2px, -1px);
+            background: #232323;
+
+            &:nth-last-child(3) {
+                opacity: 0;
+                transform: rotate(0deg) scale(0.2, 0.2);
+            }
+
+            &:nth-last-child(2) {
+                opacity: 1;
+                transform: rotate(-45deg) translate(0, -1px);
+            }
+        }
     }
 }
 
