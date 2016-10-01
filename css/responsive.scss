@@ -4,6 +4,7 @@
  */
 
 
+
 // -- Variable Declarations -- //
 
 // Fonts
@@ -59,10 +60,7 @@ body {
     color: $txt-color;
 }
 
-p {
-}
-
-//TODO: Maybe make images 100% w on mobile?
+//TODO: Maybe make images span across whole screen on mobile?
 img {
     width: 100%;
     border-radius: 5px;
@@ -93,7 +91,7 @@ a.styled {
 }
 
 // Navigation Bar
-.navbar {
+.navbar-container {
     
     border-bottom: thin solid $bg-color-dark;
     height: $navbar-height;
@@ -102,14 +100,13 @@ a.styled {
     background-color: $bg-color;
     position: fixed;
     
-
-
     span {
         display: block;
         width: 18px;
         height: 2px;
         margin-bottom: 4px;
         background: $txt-color;
+        padding: 0;
     }
 
     nav {
@@ -140,27 +137,7 @@ a.styled {
         }
 
         float: left;
-        display: inline;
-
-        &.menu_item {
-
-            @include responsive(md) {
-                display: inline;
-                background-color: transparent;
-            }
-
-            display: none;
-            background-color: $bg-color;
-        }
-
-        &.dropdown {
-
-            @include responsive(md) {
-                display: none;
-            }
-
-            float: right;
-        }
+        list-style-type: none;
     }
 
     a {
@@ -173,13 +150,15 @@ a.styled {
     
     &.open {
         
-        li {
+        .navbar-menu-items {
             
-            &.menu_item {
+            li {
                 display: block;
                 width: 100%;
                 border-bottom: thin solid $bg-color-dark;
             }
+
+            transform: translate(0, -100%);
         }
 
         span {
@@ -198,9 +177,9 @@ a.styled {
     }
 }
 
-span {
+.navbar-burger-menu {
 
-    &.burger {
+    span {
         display: block;
         width: 18px;
         height: 2px;
@@ -220,44 +199,41 @@ span {
         &:nth-last-child(2) {
             transform-origin: 0% 100%;
         }
-        
-        &.animate {
-            opacity: 1;
-            transform: rotate(45deg) translate(-2px, -1px);
-            background: #232323;
+    }
+    
+    li {
 
-            &:nth-last-child(3) {
-                opacity: 0;
-                transform: rotate(0deg) scale(0.2, 0.2);
-            }
+       @include responsive(md) {
+           display: none;
+       }
 
-            &:nth-last-child(2) {
-                opacity: 1;
-                transform: rotate(-45deg) translate(0, -1px);
-            }
-        }
+       // Force button to remain within navbar.
+       height: $navbar-height;
+       float: right;
     }
 }
 
-/* -- Title Container -- 
- * 
- * Container for a centered title page.
- */
+.navbar-menu-items {
+    /* TODO: Add animation to menu items coming down. */
+    li {
+
+        @include responsive(md) {
+            display: inline;
+            background-color: transparent;
+            width: auto;
+        }
+
+        display: none;
+        background-color: $bg-color;
+    }
+}
+
+// Title Container
 .title-container {
 
-    // On larger devices, title occupies the entire screen.
-    // @include responsive(md) {
-    //     height: $section-height;
-    //     line-height: $section-height;
-    //     padding: 0;
-    //     margin: 0;
-    // }
-
+    // Center title to page.
     text-align: center;
     vertical-align: middle;
-    //padding: 40px;
-   
-    // This makes the title the entire page on mobile as well. Keep?
     height: $section-height;
     line-height: $section-height;
 }

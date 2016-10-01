@@ -29,68 +29,59 @@ a.styled:after {
 a.styled:hover:after {
   width: 100%; }
 
-.navbar {
+.navbar-container {
   border-bottom: thin solid #E0E0E0;
   height: 55px;
   width: 100%;
   font-size: 14px;
   background-color: #fafafa;
   position: fixed; }
-  .navbar span {
+  .navbar-container span {
     display: block;
     width: 18px;
     height: 2px;
     margin-bottom: 4px;
-    background: #212121; }
+    background: #212121;
+    padding: 0; }
   @media (min-width: 960px) {
-    .navbar nav {
+    .navbar-container nav {
       width: 768px;
       margin: 0 auto; } }
   @media (min-width: 1200px) {
-    .navbar nav {
+    .navbar-container nav {
       width: 960px;
       margin: 0 auto; } }
-  .navbar ul {
+  .navbar-container ul {
     margin: 0;
     padding: 0; }
-  .navbar li {
+  .navbar-container li {
     float: left;
-    display: inline; }
+    list-style-type: none; }
     @media (min-width: 960px) {
-      .navbar li {
+      .navbar-container li {
         display: inline;
         width: auto; } }
-    .navbar li.menu_item {
-      display: none;
-      background-color: #fafafa; }
-      @media (min-width: 960px) {
-        .navbar li.menu_item {
-          display: inline;
-          background-color: transparent; } }
-    .navbar li.dropdown {
-      float: right; }
-      @media (min-width: 960px) {
-        .navbar li.dropdown {
-          display: none; } }
-  .navbar a {
+  .navbar-container a {
     display: block;
     text-decoration: none;
     color: #212121;
     padding: 20px;
     position: relative; }
-  .navbar.open li.menu_item {
-    display: block;
-    width: 100%;
-    border-bottom: thin solid #E0E0E0; }
-  .navbar.open span {
+  .navbar-container.open .navbar-menu-items {
+    transform: translate(0, -100%); }
+    .navbar-container.open .navbar-menu-items li {
+      display: block;
+      width: 100%;
+      border-bottom: thin solid #E0E0E0; }
+  .navbar-container.open span {
     transform: translate(2px, 0px) rotate(45deg) scale(1.2, 1); }
-    .navbar.open span:nth-last-child(2) {
+    .navbar-container.open span:nth-last-child(2) {
       opacity: 0;
       transform: rotate(0deg) scale(0.2, 0.2); }
-    .navbar.open span:nth-last-child(1) {
+    .navbar-container.open span:nth-last-child(1) {
       transform: rotate(-45deg) translate(0px, 0px) scale(1.2, 1); }
 
-span.burger {
+.navbar-burger-menu span {
   display: block;
   width: 18px;
   height: 2px;
@@ -98,25 +89,28 @@ span.burger {
   background: #212121;
   transform-origin: 4px 0px;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease; }
-  span.burger:first-child {
+  .navbar-burger-menu span:first-child {
     transform-origin: 0% 0%; }
-  span.burger:nth-last-child(2) {
+  .navbar-burger-menu span:nth-last-child(2) {
     transform-origin: 0% 100%; }
-  span.burger.animate {
-    opacity: 1;
-    transform: rotate(45deg) translate(-2px, -1px);
-    background: #232323; }
-    span.burger.animate:nth-last-child(3) {
-      opacity: 0;
-      transform: rotate(0deg) scale(0.2, 0.2); }
-    span.burger.animate:nth-last-child(2) {
-      opacity: 1;
-      transform: rotate(-45deg) translate(0, -1px); }
+.navbar-burger-menu li {
+  height: 55px;
+  float: right; }
+  @media (min-width: 960px) {
+    .navbar-burger-menu li {
+      display: none; } }
 
-/* -- Title Container -- 
- * 
- * Container for a centered title page.
- */
+.navbar-menu-items {
+  /* TODO: Add animation to menu items coming down. */ }
+  .navbar-menu-items li {
+    display: none;
+    background-color: #fafafa; }
+    @media (min-width: 960px) {
+      .navbar-menu-items li {
+        display: inline;
+        background-color: transparent;
+        width: auto; } }
+
 .title-container {
   text-align: center;
   vertical-align: middle;
