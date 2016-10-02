@@ -70,7 +70,7 @@ img {
         margin-left: 0;
     }
 
-    width: calc(100% + 2*#{$pad});
+    width: calc(100% + 2*#{$pad}); // Fill entire screen width.
     margin-left: -$pad;
 }
 
@@ -78,23 +78,23 @@ img {
 a {
     color: $txt-color-link;
     text-decoration: none;
-}
-
-// Links w/ left-to-right underline animation.
-a.styled {
-
-    &:after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0%;
-        border-bottom: thin solid $txt-color-link;
-        transition: 0.3s;
-    }
+    position: relative; // Don't remove this, it messes up styling.
     
-    &:hover:after {
-        width: 100%;
+    &.styled {
+        
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            border-bottom: thin solid $txt-color-link;
+            transition: 0.3s;
+        }
+        
+        &:hover:after {
+            width: 100%;
+        }
     }
 }
 
@@ -150,7 +150,6 @@ a.styled {
 
     a {
         display: block;
-        text-decoration: none;
         color: $txt-color;
         padding: 20px;
         position: relative;
@@ -265,7 +264,6 @@ section {
     @include responsive(md) {
         width: $md-width;
         margin: 0 auto;
-        overflow: auto;
     }
 
     @include responsive(lg) {
@@ -280,7 +278,7 @@ section {
 .anchor {
     display:block;
     position: relative;
-    top: -55px;
+    top: -$navbar-height; // Offset Navbar.
     visibility: hidden;
 }
 
@@ -299,6 +297,7 @@ section {
         clear: both;
     }
 }
+
 // TODO: Generalize this column stuff.
 .col-1-2 {
     
