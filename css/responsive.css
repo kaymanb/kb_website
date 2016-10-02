@@ -11,8 +11,12 @@ body {
   color: #212121; }
 
 img {
-  width: 100%;
-  border-radius: 5px; }
+  width: calc(100% + 2*20px);
+  margin-left: -20px; }
+  @media (min-width: 960px) {
+    img {
+      width: 100%;
+      margin-left: 0; } }
 
 a {
   color: #0277bd;
@@ -129,7 +133,8 @@ section {
   @media (min-width: 960px) {
     section {
       width: 768px;
-      margin: 0 auto; } }
+      margin: 0 auto;
+      overflow: auto; } }
   @media (min-width: 1200px) {
     section {
       width: 960px;
@@ -145,5 +150,16 @@ section {
   overflow: hidden;
   margin: 0 auto;
   width: 100%; }
+
+@media (min-width: 960px) {
+  .col-1-1 {
+    width: 100%;
+    display: block;
+    clear: both; } }
+
+@media (min-width: 960px) {
+  .col-1-2 {
+    float: left;
+    width: 50%; } }
 
 /*# sourceMappingURL=responsive.css.map */

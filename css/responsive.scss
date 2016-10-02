@@ -3,9 +3,9 @@
  * Author: Kayman Brusse
  */
 
-
-
 // -- Variable Declarations -- //
+
+$pad: 20px;
 
 // Fonts
 $fonts: Helvetica, sans-serif;
@@ -16,12 +16,13 @@ $txt-color-link: #0277bd;
 // Background
 $bg-color: #fafafa;
 $bg-color-dark: #E0E0E0;
-$section-height: calc(100vh - 20px); // Hack for fixing 20px padding somewhere.
+$section-height: calc(100vh - #{$pad}); // Hack for fixing 20px padding somewhere.
 
 // Screen Sizes
 $screen-height: 100vh;
 $lg-width: 960px;
 $md-width: 768px;
+
 
 // Navbar
 $navbar-active: #f5f5f5;
@@ -60,10 +61,17 @@ body {
     color: $txt-color;
 }
 
-//TODO: Maybe make images span across whole screen on mobile?
+// TODO: Add image title on right side.
 img {
-    width: 100%;
-    border-radius: 5px;
+    
+    // On larger screens limit images to container.
+    @include responsive(md) {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    width: calc(100% + 2*#{$pad});
+    margin-left: -$pad;
 }
 
 // Links
@@ -236,6 +244,7 @@ a.styled {
     vertical-align: middle;
     height: $section-height;
     line-height: $section-height;
+
 }
 
 // General Section Container
@@ -256,13 +265,15 @@ section {
     @include responsive(md) {
         width: $md-width;
         margin: 0 auto;
+        overflow: auto;
     }
+
     @include responsive(lg) {
         width: $lg-width;
         margin: 0 auto;
     }
 
-    padding: 20px;
+    padding: $pad;
 }
 
 // Fix for scrolling to a section w/ fixed nav bar.
@@ -278,4 +289,21 @@ section {
     overflow: hidden;
     margin: 0 auto;
     width: 100%;
+}
+
+.col-1-1 {
+
+    @include responsive(md) {
+        width: 100%;
+        display: block;
+        clear: both;
+    }
+}
+// TODO: Generalize this column stuff.
+.col-1-2 {
+    
+    @include responsive(md) {
+        float: left;
+        width: 50%;
+    }
 }
