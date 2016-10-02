@@ -107,6 +107,7 @@ a {
     font-size: $navbar-txt-size;
     background-color: $bg-color;
     position: fixed;
+    z-index: 2;
     
     span {
         display: block;
@@ -150,11 +151,12 @@ a {
 
     a {
         display: block;
+        
         color: $txt-color;
         padding: 20px;
         position: relative;
     }
-    
+
     &.open {
         
         .navbar-menu-items {
@@ -165,7 +167,7 @@ a {
                 border-bottom: thin solid $bg-color-dark;
             }
 
-            transform: translate(0, -100%);
+            transform: scale(1.0, 1.0);
         }
 
         span {
@@ -185,7 +187,7 @@ a {
 }
 
 .navbar-burger-menu {
-
+    
     span {
         display: block;
         width: 18px;
@@ -221,7 +223,16 @@ a {
 }
 
 .navbar-menu-items {
-    /* TODO: Add animation to menu items coming down. */
+
+    @include responsive(md) {
+        transform: scale(1.0, 1.0);
+        transition: none;
+    }
+    
+    /* TODO: Fix animation from overlapping other elements */
+    transform: scale(1.0, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+
     li {
 
         @include responsive(md) {
@@ -233,6 +244,7 @@ a {
         display: none;
         background-color: $bg-color;
     }
+
 }
 
 // Title Container
@@ -289,6 +301,7 @@ section {
     width: 100%;
 }
 
+// TODO: Generalize this column stuff.
 .col-1-1 {
 
     @include responsive(md) {
@@ -298,7 +311,6 @@ section {
     }
 }
 
-// TODO: Generalize this column stuff.
 .col-1-2 {
     
     @include responsive(md) {

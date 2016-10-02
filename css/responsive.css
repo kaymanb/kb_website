@@ -39,7 +39,8 @@ a {
   width: 100%;
   font-size: 14px;
   background-color: #fafafa;
-  position: fixed; }
+  position: fixed;
+  z-index: 2; }
   .navbar-container span {
     display: block;
     width: 18px;
@@ -71,7 +72,7 @@ a {
     padding: 20px;
     position: relative; }
   .navbar-container.open .navbar-menu-items {
-    transform: translate(0, -100%); }
+    transform: scale(1, 1); }
     .navbar-container.open .navbar-menu-items li {
       display: block;
       width: 100%;
@@ -104,7 +105,13 @@ a {
       display: none; } }
 
 .navbar-menu-items {
-  /* TODO: Add animation to menu items coming down. */ }
+  /* TODO: Fix animation from overlapping other elements */
+  transform: scale(1, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); }
+  @media (min-width: 960px) {
+    .navbar-menu-items {
+      transform: scale(1, 1);
+      transition: none; } }
   .navbar-menu-items li {
     display: none;
     background-color: #fafafa; }
