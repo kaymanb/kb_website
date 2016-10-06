@@ -69,7 +69,7 @@ img {
         width: 100%;
         margin-left: 0;
     }
-
+    
     width: calc(100% + 2*#{$pad}); // Fill entire screen width.
     margin-left: -$pad;
 }
@@ -298,6 +298,7 @@ section {
 .res-container {
     overflow: hidden;
     margin: 0 auto;
+    margin-bottom: 20px;
     width: 100%;
 }
 
@@ -317,4 +318,21 @@ section {
         float: left;
         width: 50%;
     }
+}
+
+.col-1-3 {
+    
+    @include responsive(md) {
+        float:left;
+        width: 33%;
+    }
+}
+
+.col-2-3 {
+
+    @include responsive(md) {
+        float:left;
+        width: 66%;
+    }
+
 }
