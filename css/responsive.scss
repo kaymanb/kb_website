@@ -68,6 +68,7 @@ img {
     @include responsive(md) {
         width: 100%;
         margin-left: 0;
+        margin-bottom: $pad;
     }
     
     width: calc(100% + 2*#{$pad}); // Fill entire screen width.
@@ -300,6 +301,17 @@ section {
     margin: 0 auto;
     margin-bottom: 20px;
     width: 100%;
+}
+
+// TODO: Better implementation of this, allowing pictures to be grouped
+// together.
+.merged {
+    img {
+        margin: 0 auto;
+        width: 30%;
+        padding: 5px;
+        margin-bottom: 0;
+    }
 }
 
 // TODO: Generalize this column stuff.

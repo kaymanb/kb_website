@@ -16,7 +16,8 @@ img {
   @media (min-width: 960px) {
     img {
       width: 100%;
-      margin-left: 0; } }
+      margin-left: 0;
+      margin-bottom: 20px; } }
 
 a {
   color: #0277bd;
@@ -156,6 +157,12 @@ section {
   margin: 0 auto;
   margin-bottom: 20px;
   width: 100%; }
+
+.merged img {
+  margin: 0 auto;
+  width: 30%;
+  padding: 5px;
+  margin-bottom: 0; }
 
 @media (min-width: 960px) {
   .col-1-1 {
